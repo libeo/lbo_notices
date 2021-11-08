@@ -1,11 +1,12 @@
 {
     "name": "libeo/lbo-notices",
     "type": "typo3-cms-extension",
-    "description": "",
+    "description": "Use to display different level of notices in different pages of the website.",
+    "license": "AGPL-3.0",
     "authors": [
         {
             "name": "Pierre Boivin",
-            "role": "Developer"
+            "email": "pierre.boivin@libeo.com"
         }
     ],
     "require": {

@@ -1,7 +1,6 @@
 plugin.tx_lbonotices {
     levelRedirect = {$plugin.tx_lbonotices.settings.levelRedirect}
-}
-plugin.tx_lbonotices_list {
+
     view {
         templateRootPaths.0 = EXT:lbo_notices/Resources/Private/Templates/
         templateRootPaths.1 = {$plugin.tx_lbonotices.view.templateRootPath}
@@ -15,43 +14,10 @@ plugin.tx_lbonotices_list {
         #recursive = 1
     }
     features {
-        #skipDefaultArguments = 1
-        # if set to 1, the enable fields are ignored in BE context
         ignoreAllEnableFieldsInBe = 0
-        # Should be on by default, but can be disabled if all action in the plugin are uncached
         requireCHashArgumentForActionArguments = 1
-    }
-    mvc {
-        #callDefaultActionIfActionCantBeResolved = 1
     }
     settings {
         detailPid = {$plugin.tx_lbonotices.settings.detailPid}
-    }
-}
-
-plugin.tx_lbonotices_displaynotice {
-    view {
-        templateRootPaths.0 = EXT:lbo_notices/Resources/Private/Templates/
-        templateRootPaths.1 = {$plugin.tx_lbonotices.view.templateRootPath}
-        partialRootPaths.0 = EXT:lbo_notices/Resources/Private/Partials/
-        partialRootPaths.1 = {$plugin.tx_lbonotices.view.partialRootPath}
-        layoutRootPaths.0 = EXT:lbo_notices/Resources/Private/Layouts/
-        layoutRootPaths.1 = {$plugin.tx_lbonotices.view.layoutRootPath}
-    }
-    persistence {
-        storagePid = {$plugin.tx_lbonotices.persistence.storagePid}
-        #recursive = 1
-    }
-    features {
-        #skipDefaultArguments = 1
-        # if set to 1, the enable fields are ignored in BE context
-        ignoreAllEnableFieldsInBe = 0
-        # Should be on by default, but can be disabled if all action in the plugin are uncached
-        requireCHashArgumentForActionArguments = 1
-    }
-    mvc {
-        #callDefaultActionIfActionCantBeResolved = 1
-    }
-    settings {
     }
 }
