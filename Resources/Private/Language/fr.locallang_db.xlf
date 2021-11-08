@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="fr" datatype="plaintext" original="EXT:lbo_notices/Resources/Private/Language/locallang_db" date="2020-07-27T10:21:15Z" product-name="lbo_notices">
+		<header/>
+		<body>
+			<trans-unit id="tx_lbonotices_domain_model_notice" resname="tx_lbonotices_domain_model_notice">
+				<target>Alertes</target>
+			</trans-unit>
+			<trans-unit id="tx_lbonotices_domain_model_notice.title" resname="tx_lbonotices_domain_model_notice.title">
+				<target>Titre</target>
+			</trans-unit>
+			<trans-unit id="tx_lbonotices_domain_model_notice.slug" resname="tx_lbonotices_domain_model_notice.slug">
+				<target>Slug</target>
+			</trans-unit>
+			<trans-unit id="tx_lbonotices_domain_model_notice.teaser" resname="tx_lbonotices_domain_model_notice.teaser">
+				<target>Résumé</target>
+			</trans-unit>
+			<trans-unit id="tx_lbonotices_domain_model_notice.description" resname="tx_lbonotices_domain_model_notice.description">
+				<target>Description</target>
+			</trans-unit>
+			<trans-unit id="tx_lbonotices_domain_model_notice.level" resname="tx_lbonotices_domain_model_notice.level">
+				<target>Niveau</target>
+			</trans-unit>
+			<trans-unit id="tx_lbo_notices_list.name" resname="tx_lbo_notices_list.name">
+				<target>Liste des alertes actives</target>
+			</trans-unit>
+			<trans-unit id="tx_lbo_notices_list.description" resname="tx_lbo_notices_list.description">
+				<target></target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

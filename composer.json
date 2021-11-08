@@ -1,0 +1,19 @@
+{
+    "name": "libeo/lbo-notices",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "authors": [
+        {
+            "name": "Pierre Boivin",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+		"typo3/cms-core": "^10.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Libeo\\LboNotices\\": "Classes"
+        }
+    }
+}

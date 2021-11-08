@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:lbo_notices/Resources/Private/Language/locallang_csh" date="2020-07-27T10:21:15Z" product-name="lbo_notices">
+		<header/>
+		<body>
+			<trans-unit id="title.description" resname="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="description.description" resname="description.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="level.description" resname="level.description">
+				<source>level</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:lbo_notices/Resources/Private/Language/locallang" date="2020-07-27T10:21:15Z" product-name="lbo_notices">
+		<header/>
+		<body>
+			<trans-unit id="tx_lbonotices_domain_model_notice" resname="tx_lbonotices_domain_model_notice">
+				<source>Notice</source>
+			</trans-unit>
+			<trans-unit id="tx_lbonotices_domain_model_notice.title" resname="tx_lbonotices_domain_model_notice.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_lbonotices_domain_model_notice.description" resname="tx_lbonotices_domain_model_notice.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_lbonotices_domain_model_notice.level" resname="tx_lbonotices_domain_model_notice.level">
+				<source>Level</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
