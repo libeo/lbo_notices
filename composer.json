@@ -1,5 +1,5 @@
 {
-    "name": "libeo/lbo-notices",
+    "name": "libeo/lbo_notices",
     "type": "typo3-cms-extension",
     "description": "Use to display different level of notices in different pages of the website.",
     "license": "AGPL-3.0",
@@ -15,6 +15,11 @@
     "autoload": {
         "psr-4": {
             "Libeo\\LboNotices\\": "Classes"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "lbo_notices"
         }
     }
 }
