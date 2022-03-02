@@ -19,7 +19,7 @@ class Redirect implements MiddlewareInterface
         $response = $handler->handle($request);
 
         $levelRedirect = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_lbonotices.']['levelRedirect'];
-        if ($levelRedirect !== null) {
+        if (!empty($levelRedirect)) {
             $notices = Utility::getAllActiveNotices();
 
             /** @var Notice $notice */

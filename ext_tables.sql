@@ -7,6 +7,6 @@ CREATE TABLE tx_lbonotices_domain_model_notice (
 	slug varchar(2048),
 	teaser text,
 	description text,
-	level int(11) DEFAULT '0' NOT NULL
-
+	level int(11) DEFAULT '0' NOT NULL,
+	pages text
 );
