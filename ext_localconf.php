@@ -28,3 +28,8 @@ call_user_func(
         );
     }
 );
+
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['get_cache_timeout']['lbo_notices'] =
+    \Libeo\LboNotices\Hooks\FrontendHooks::class . '->determineCacheTimeout';
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc']['lbo_notices'] =
+    \Libeo\LboNotices\Hooks\FrontendHooks::class . '->clearCachePostProc';

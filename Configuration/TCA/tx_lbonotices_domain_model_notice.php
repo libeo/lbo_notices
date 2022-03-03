@@ -23,7 +23,7 @@ return [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, slug, teaser, description, level',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, slug, teaser, description, level,
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, slug, teaser, description, level, pages,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
@@ -192,6 +192,18 @@ return [
                 'maxitems' => 1,
                 'eval' => ''
             ],
+        ],
+        'pages' => [
+            'label' => 'LLL:EXT:lbo_notices/Resources/Private/Language/locallang_db.xlf:tx_lbonotices_domain_model_notice.pages',
+            'l10n_mode' => 'exclude',
+            'config' => [
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'pages',
+                'size' => 3,
+                'maxitems' => 50,
+                'minitems' => 0
+            ]
         ],
         'tstamp' => [
             'label' => 'tstamp',

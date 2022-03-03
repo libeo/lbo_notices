@@ -54,6 +54,21 @@ class Notice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $tstamp = 0;
 
     /**
+     * @var \DateTime
+     */
+    protected $starttime;
+
+    /**
+     * @var \DateTime
+     */
+    protected $endtime;
+
+    /**
+     * @var string
+     */
+    protected $pages;
+
+    /**
      * Returns the title
      *
      * @return string $title
@@ -156,5 +171,29 @@ class Notice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setTstamp($tstamp)
     {
         $this->tstamp = $tstamp;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getStarttime()
+    {
+        return $this->starttime;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getEndtime()
+    {
+        return $this->endtime;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPagesIds()
+    {
+        return array_filter(explode(',', $this->pages));
     }
 }

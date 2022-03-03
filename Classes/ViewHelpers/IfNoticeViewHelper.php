@@ -37,7 +37,7 @@ class IfNoticeViewHelper extends AbstractConditionViewHelper
         }
 
         /** @var Notice $notice */
-        foreach($notices as $notice) {
+        foreach ($notices as $notice) {
             if ($notice->getLevel() === $level) {
                 return true;
             }

@@ -21,6 +21,9 @@
 			<trans-unit id="tx_lbonotices_domain_model_notice.level" resname="tx_lbonotices_domain_model_notice.level">
 				<target>Niveau</target>
 			</trans-unit>
+			<trans-unit id="tx_lbonotices_domain_model_notice.pages" resname="tx_lbonotices_domain_model_notice.pages">
+				<source>Pages (vide pour afficher partout)</source>
+			</trans-unit>
 			<trans-unit id="tx_lbo_notices_list.name" resname="tx_lbo_notices_list.name">
 				<target>Liste des alertes actives</target>
 			</trans-unit>
