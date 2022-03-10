@@ -1,6 +1,6 @@
 # TYPO3 extension `lbo_notices`
 
-Use to display different level of notices in different pages of the website.
+This TYPO3 extension is used to display different levels of notices on the different pages of the website.
 
 |                  | URL                                                   |
 |------------------|-------------------------------------------------------|
