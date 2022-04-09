@@ -2,6 +2,12 @@
     "name": "libeo/lbo_notices",
     "type": "typo3-cms-extension",
     "description": "Use to display different level of notices in different pages of the website.",
+    "homepage": "https://extensions.typo3.org/extension/lbo_notices",
+    "support": {
+        "docs": "https://docs.typo3.org/p/libeo/lbo-notices/1.0/en-us/",
+        "issues": "https://github.com/libeo/lbo_notices/issues",
+        "source": "https://github.com/libeo/lbo_notices"
+    },
     "license": "AGPL-3.0",
     "authors": [
         {
