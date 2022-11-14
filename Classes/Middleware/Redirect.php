@@ -8,7 +8,11 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use TYPO3\CMS\Core\Context\Context;
+use TYPO3\CMS\Core\Context\TypoScriptAspect;
 use TYPO3\CMS\Core\Http\RedirectResponse;
+use TYPO3\CMS\Core\TypoScript\TemplateService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class Redirect implements MiddlewareInterface
 {
@@ -18,7 +22,8 @@ class Redirect implements MiddlewareInterface
     ): ResponseInterface {
         $response = $handler->handle($request);
 
-        $levelRedirect = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_lbonotices.']['levelRedirect'];
+        $typoScript = $this->getTypoScriptSetup();
+        $levelRedirect = $typoScript['plugin.']['tx_lbonotices.']['levelRedirect'];
         if (!empty($levelRedirect)) {
             $notices = Utility::getAllActiveNotices();
 
@@ -31,5 +36,20 @@ class Redirect implements MiddlewareInterface
         }
 
         return $response;
+    }
+
+    protected function getTypoScriptSetup(): array
+    {
+        if (!$GLOBALS['TSFE']->tmpl instanceof TemplateService || empty($GLOBALS['TSFE']->tmpl->setup)) {
+            $context = GeneralUtility::makeInstance(Context::class);
+
+            if ($context->getPropertyFromAspect('typoscript', 'forcedTemplateParsing') === false) {
+                $context->setAspect('typoscript', new TypoScriptAspect(true));
+            }
+
+            $GLOBALS['TSFE']->getConfigArray();
+        }
+
+        return $GLOBALS['TSFE']->tmpl->setup;
     }
 }
