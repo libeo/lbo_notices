@@ -6,6 +6,10 @@
 Change log
 ==========
 
+Version 1.2.3
+-------------
+- Fix the clearCache hook.
+
 Version 1.2.2
 -------------
 - Fix the middleware to force the load of the TypoScript since the TypoScript is not loaded in the cached version of the page.

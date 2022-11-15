@@ -37,10 +37,9 @@ class FrontendHooks
 
     public function clearCachePostProc(array $params)
     {
-        if ($params['table'] === 'tx_lbonotices_domain_model_notice') {
+        if (($parameters['table'] ?? '') === 'tx_lbonotices_domain_model_notice') {
             /** @var NoticeRepository $noticeRepository */
-            $noticeRepository = GeneralUtility::makeInstance(ObjectManager::class)
-                ->get(NoticeRepository::class);
+            $noticeRepository = GeneralUtility::makeInstance(NoticeRepository::class);
 
             /** @var null|Notice $notice */
             $notice = $noticeRepository->getByid($params['uid']);
