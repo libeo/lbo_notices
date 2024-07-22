@@ -5,6 +5,7 @@ use Libeo\LboNotices\Domain\Model\Notice;
 use Libeo\LboNotices\Domain\Repository\NoticeRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
+use Psr\Http\Message\ResponseInterface;
 
 /***
  *
@@ -42,12 +43,14 @@ class NoticeController extends ActionController
      *
      * @return void
      */
-    public function listAction()
+    public function listAction(): ResponseInterface
     {
-        $notices = $this->noticeRepository->findAllForPage($this->getTSFE()->id);
+        $currentPage = $this->request->getAttribute('frontend.controller')->getRequestedId();
+        $notices = $this->noticeRepository->findAllForPage($currentPage);
         $this->view->assign('notices', $notices);
 
         $this->addCacheTags($notices->toArray());
+        return $this->htmlResponse();
     }
 
     /**
@@ -56,11 +59,12 @@ class NoticeController extends ActionController
      * @param Notice $notice
      * @return void
      */
-    public function showAction(Notice $notice)
+    public function showAction(Notice $notice): ResponseInterface
     {
         $this->view->assign('notice', $notice);
 
         $this->addCacheTags([$notice]);
+        return $this->htmlResponse();
     }
 
     protected function addCacheTags(array $notices)

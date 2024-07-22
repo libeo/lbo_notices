@@ -29,7 +29,7 @@ class IfNoticeViewHelper extends AbstractConditionViewHelper
      */
     protected static function evaluateCondition($arguments = null)
     {
-        $level = isset($arguments['level']) ? $arguments['level'] : null;
+        $level = $arguments['level'] ?? null;
         $notices = Utility::getAllActiveNotices();
 
         if (!$level && $notices) {

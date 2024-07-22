@@ -40,16 +40,21 @@ class Redirect implements MiddlewareInterface
 
     protected function getTypoScriptSetup(): array
     {
-        if (!$GLOBALS['TSFE']->tmpl instanceof TemplateService || empty($GLOBALS['TSFE']->tmpl->setup)) {
+        $frontendTS = $GLOBALS['TYPO3_REQUEST']->getAttribute('frontend.typoscript');
+        if (!$frontendTS->hasSetup()) {
             $context = GeneralUtility::makeInstance(Context::class);
 
             if ($context->getPropertyFromAspect('typoscript', 'forcedTemplateParsing') === false) {
                 $context->setAspect('typoscript', new TypoScriptAspect(true));
             }
 
-            $GLOBALS['TSFE']->getConfigArray();
+            // TSFE->getFromCache() forces initialisation of the frontend TS, when forcedTemplateParsing === true
+            $frontendTS = $GLOBALS['TYPO3_REQUEST']
+                ->getAttribute('frontend.controller')
+                ->getFromCache($GLOBALS['TYPO3_REQUEST'])
+                ->getAttribute('frontend.typoscript');
         }
 
-        return $GLOBALS['TSFE']->tmpl->setup;
+        return $frontendTS->getSetupArray();
     }
 }

@@ -1,8 +1,8 @@
 <?php
-defined('TYPO3_MODE') || die('Access denied.');
+defined('TYPO3') || die('Access denied.');
 
 call_user_func(
-    function () {
+    function (): void {
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'LboNotices',
             'List',
@@ -29,7 +29,5 @@ call_user_func(
     }
 );
 
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['get_cache_timeout']['lbo_notices'] =
-    \Libeo\LboNotices\Hooks\FrontendHooks::class . '->determineCacheTimeout';
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc']['lbo_notices'] =
     \Libeo\LboNotices\Hooks\FrontendHooks::class . '->clearCachePostProc';

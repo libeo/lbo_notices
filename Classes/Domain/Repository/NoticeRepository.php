@@ -23,10 +23,10 @@ class NoticeRepository extends Repository
     {
         $query = $this->createQuery();
         $query->matching(
-            $query->logicalOr([
+            $query->logicalOr(
                 $query->contains('pages', $pageUid),
                 $query->equals('pages', '')
-            ])
+            )
         );
 
         return $query->execute();
@@ -47,10 +47,10 @@ class NoticeRepository extends Repository
 
         return $query
             ->matching(
-                $query->logicalOr([
+                $query->logicalOr(
                     $query->contains('pages', $pageUid),
                     $query->equals('pages', '')
-                ])
+                )
             )->execute();
     }
 

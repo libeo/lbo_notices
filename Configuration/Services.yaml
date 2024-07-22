@@ -1,0 +1,16 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Libeo\LboNotices\Domain\Repository\NoticeRepository:
+    public: true
+    
+  Libeo\LboNotices\Controller\NoticeController:
+    public: true
+    
+  Libeo\LboNotices\EventListener\DetermineCacheTimeout:
+    tags:
+      - name: event.listener
+        identifier: 'libeo/lbonotices/cache-timeout'
