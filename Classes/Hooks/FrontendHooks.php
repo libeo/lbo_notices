@@ -6,35 +6,9 @@ use Libeo\LboNotices\Domain\Model\Notice;
 use Libeo\LboNotices\Domain\Repository\NoticeRepository;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 class FrontendHooks
 {
-    public function determineCacheTimeout($params, $tsfe)
-    {
-        $timeouts = [$params['cacheTimeout']];
-
-        /** @var NoticeRepository $noticeRepository */
-        $noticeRepository = GeneralUtility::makeInstance(ObjectManager::class)
-            ->get(NoticeRepository::class);
-
-        /** @var null|Notice $notice */
-        $notices = $noticeRepository->getByPageId($tsfe->id);
-
-        if ($notices->count()) {
-            $now = $GLOBALS['ACCESS_TIME'];
-            foreach ($notices as $notice) {
-                if (($starttime = $notice->getStarttime()) && $starttime->getTimestamp() > $now) {
-                    $timeouts[] = $starttime->getTimestamp() - $now;
-                }if (($endtime = $notice->getEndtime()) && $endtime->getTimestamp() > $now) {
-                    $timeouts[] = $endtime->getTimestamp() - $now;
-                }
-            }
-        }
-
-        return min($timeouts);
-    }
-
     public function clearCachePostProc(array $params)
     {
         if (($parameters['table'] ?? '') === 'tx_lbonotices_domain_model_notice') {

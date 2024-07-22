@@ -5,7 +5,6 @@ return [
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'versioningWS' => true,
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -17,9 +16,11 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'title,slug,description,level',
-        'iconfile' => 'EXT:lbo_notices/Resources/Public/Icons/tx_lbonotices_domain_model_notice.svg'
+        'iconfile' => 'EXT:lbo_notices/Resources/Public/Icons/tx_lbonotices_domain_model_notice.svg',
+        'security' => [
+            'ignorePageTypeRestriction' => true
+        ]
     ],
-    'interface' => [],
     'types' => [
         '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, slug, teaser, description, level, pages,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
@@ -40,7 +41,7 @@ return [
                 'renderType' => 'selectSingle',
                 'default' => 0,
                 'items' => [
-                    ['', 0],
+                    ['label' => '', 'value' => 0],
                 ],
                 'foreign_table' => 'tx_lbonotices_domain_model_notice',
                 'foreign_table_where' => 'AND {#tx_lbonotices_domain_model_notice}.{#pid}=###CURRENT_PID### AND {#tx_lbonotices_domain_model_notice}.{#sys_language_uid} IN (-1,0)',
@@ -67,8 +68,7 @@ return [
                 'renderType' => 'checkboxToggle',
                 'items' => [
                     [
-                        0 => '',
-                        1 => '',
+                        'label' => '',
                         'invertStateDisplay' => true
                     ]
                 ],
@@ -78,9 +78,7 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
+                'type' => 'datetime',
                 'default' => 0,
                 'behaviour' => [
                     'allowLanguageSynchronization' => true
@@ -91,9 +89,7 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
+                'type' => 'datetime',
                 'default' => 0,
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038)
@@ -127,7 +123,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim,required'
+                'eval' => 'trim',
+                'required' => true
             ],
         ],
         'teaser' => [
@@ -173,7 +170,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['', 0]
+                    ['label' => '', 'value' => 0]
                 ],
                 'size' => 1,
                 'maxitems' => 1,
@@ -185,7 +182,6 @@ return [
             'l10n_mode' => 'exclude',
             'config' => [
                 'type' => 'group',
-                'internal_type' => 'db',
                 'allowed' => 'pages',
                 'size' => 3,
                 'maxitems' => 50,
