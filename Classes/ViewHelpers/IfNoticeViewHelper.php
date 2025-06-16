@@ -3,6 +3,7 @@ namespace Libeo\LboNotices\ViewHelpers;
 
 use Libeo\LboNotices\Domain\Model\Notice;
 use Libeo\LboNotices\Domain\Utility;
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractConditionViewHelper;
 
 /**
@@ -21,13 +22,7 @@ class IfNoticeViewHelper extends AbstractConditionViewHelper
         $this->registerArgument('level', 'string', 'Level of alert');
     }
 
-    /**
-     * This method decides if the condition is TRUE or FALSE. It can be overridden in extending viewhelpers to adjust functionality.
-     *
-     * @param array $arguments ViewHelper arguments to evaluate the condition for this ViewHelper, allows for flexibility in overriding this method.
-     * @return bool
-     */
-    protected static function evaluateCondition($arguments = null)
+    public static function verdict(array $arguments, RenderingContextInterface $renderingContext): bool
     {
         $level = $arguments['level'] ?? null;
         $notices = Utility::getAllActiveNotices();
@@ -38,7 +33,7 @@ class IfNoticeViewHelper extends AbstractConditionViewHelper
 
         /** @var Notice $notice */
         foreach ($notices as $notice) {
-            if ($notice->getLevel() === $level) {
+            if ($notice->getLevel() == $level) {
                 return true;
             }
         }

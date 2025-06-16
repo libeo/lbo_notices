@@ -3,8 +3,8 @@ namespace Libeo\LboNotices\Controller;
 
 use Libeo\LboNotices\Domain\Model\Notice;
 use Libeo\LboNotices\Domain\Repository\NoticeRepository;
+use TYPO3\CMS\Core\Cache\CacheTag;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use Psr\Http\Message\ResponseInterface;
 
 /***
@@ -45,7 +45,7 @@ class NoticeController extends ActionController
      */
     public function listAction(): ResponseInterface
     {
-        $currentPage = $this->request->getAttribute('frontend.controller')->getRequestedId();
+        $currentPage = $this->request->getAttribute('routing')->getPageId();
         $notices = $this->noticeRepository->findAllForPage($currentPage);
         $this->view->assign('notices', $notices);
 
@@ -67,19 +67,14 @@ class NoticeController extends ActionController
         return $this->htmlResponse();
     }
 
-    protected function addCacheTags(array $notices)
+    protected function addCacheTags(array $notices): void
     {
-        $this->getTSFE()->addCacheTags(['tx_lbonotices_domain_model_notice_all']);
-        foreach ($notices as $notice) {
-            $this->getTSFE()->addCacheTags(['tx_lbonotices_domain_model_notice_' . $notice->getUid()]);
-        }
-    }
+        $this->request->getAttribute('frontend.cache.collector')
+            ->addCacheTags(new CacheTag('tx_lbonotices_domain_model_notice_all'));
 
-    /**
-     * @return TypoScriptFrontendController
-     */
-    protected function getTSFE()
-    {
-        return $GLOBALS['TSFE'];
+        foreach ($notices as $notice) {
+            $this->request->getAttribute('frontend.cache.collector')
+                ->addCacheTags(new CacheTag('tx_lbonotices_domain_model_notice_' . $notice->getUid()));
+        }
     }
 }
