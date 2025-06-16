@@ -12,7 +12,8 @@ call_user_func(
             // non-cacheable actions
             [
                 \Libeo\LboNotices\Controller\NoticeController::class => ''
-            ]
+            ],
+            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_PLUGIN
         );
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
@@ -24,7 +25,8 @@ call_user_func(
             // non-cacheable actions
             [
                 \Libeo\LboNotices\Controller\NoticeController::class => ''
-            ]
+            ],
+            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_PLUGIN
         );
     }
 );

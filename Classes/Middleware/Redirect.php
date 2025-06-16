@@ -11,7 +11,6 @@ use Psr\Http\Server\RequestHandlerInterface;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\TypoScriptAspect;
 use TYPO3\CMS\Core\Http\RedirectResponse;
-use TYPO3\CMS\Core\TypoScript\TemplateService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class Redirect implements MiddlewareInterface
@@ -42,13 +41,7 @@ class Redirect implements MiddlewareInterface
     {
         $frontendTS = $GLOBALS['TYPO3_REQUEST']->getAttribute('frontend.typoscript');
         if (!$frontendTS->hasSetup()) {
-            $context = GeneralUtility::makeInstance(Context::class);
-
-            if ($context->getPropertyFromAspect('typoscript', 'forcedTemplateParsing') === false) {
-                $context->setAspect('typoscript', new TypoScriptAspect(true));
-            }
-
-            // TSFE->getFromCache() forces initialisation of the frontend TS, when forcedTemplateParsing === true
+            // TSFE->getFromCache() forces initialisation of the frontend TS
             $frontendTS = $GLOBALS['TYPO3_REQUEST']
                 ->getAttribute('frontend.controller')
                 ->getFromCache($GLOBALS['TYPO3_REQUEST'])
