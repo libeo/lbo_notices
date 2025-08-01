@@ -8,10 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use TYPO3\CMS\Core\Context\Context;
-use TYPO3\CMS\Core\Context\TypoScriptAspect;
 use TYPO3\CMS\Core\Http\RedirectResponse;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class Redirect implements MiddlewareInterface
 {
@@ -22,14 +19,16 @@ class Redirect implements MiddlewareInterface
         $response = $handler->handle($request);
 
         $typoScript = $this->getTypoScriptSetup();
-        $levelRedirect = $typoScript['plugin.']['tx_lbonotices.']['levelRedirect'];
-        if (!empty($levelRedirect)) {
-            $notices = Utility::getAllActiveNotices();
+        if ($typoScript) {
+            $levelRedirect = $typoScript['plugin.']['tx_lbonotices.']['levelRedirect'] ?? null;
+            if (!empty($levelRedirect)) {
+                $notices = Utility::getAllActiveNotices();
 
-            /** @var Notice $notice */
-            foreach ($notices as $notice) {
-                if ($notice->getLevel() === (int) $levelRedirect && $request->getUri()->getPath() !== '/') {
-                    return new RedirectResponse('/', 302);
+                /** @var Notice $notice */
+                foreach ($notices as $notice) {
+                    if ($notice->getLevel() === (int) $levelRedirect && $request->getUri()->getPath() !== '/') {
+                        return new RedirectResponse('/', 302);
+                    }
                 }
             }
         }
@@ -37,17 +36,10 @@ class Redirect implements MiddlewareInterface
         return $response;
     }
 
-    protected function getTypoScriptSetup(): array
+    protected function getTypoScriptSetup(): ?array
     {
         $frontendTS = $GLOBALS['TYPO3_REQUEST']->getAttribute('frontend.typoscript');
-        if (!$frontendTS->hasSetup()) {
-            // TSFE->getFromCache() forces initialisation of the frontend TS
-            $frontendTS = $GLOBALS['TYPO3_REQUEST']
-                ->getAttribute('frontend.controller')
-                ->getFromCache($GLOBALS['TYPO3_REQUEST'])
-                ->getAttribute('frontend.typoscript');
-        }
 
-        return $frontendTS->getSetupArray();
+        return $frontendTS->hasSetup() ? $frontendTS->getSetupArray() : null;
     }
 }
