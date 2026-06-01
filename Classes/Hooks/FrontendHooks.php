@@ -4,11 +4,13 @@ namespace Libeo\LboNotices\Hooks;
 
 use Libeo\LboNotices\Domain\Model\Notice;
 use Libeo\LboNotices\Domain\Repository\NoticeRepository;
+use TYPO3\CMS\Core\Attribute\AsAllowedCallable;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class FrontendHooks
 {
+    #[AsAllowedCallable]
     public function clearCachePostProc(array $params)
     {
         if (($params['table'] ?? '') === 'tx_lbonotices_domain_model_notice') {

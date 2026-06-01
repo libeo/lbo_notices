@@ -22,7 +22,7 @@ class Notice extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @var string
      */
-    #[\TYPO3\CMS\Extbase\Annotation\Validate(['validator' => 'NotEmpty'])]
+    #[\TYPO3\CMS\Extbase\Attribute\Validate(validator: 'NotEmpty')]
     protected $title = '';
 
     /**

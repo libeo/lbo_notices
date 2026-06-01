@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-		"typo3/cms-core": "^13.4"
+		"typo3/cms-core": "^14.0"
     },
     "autoload": {
         "psr-4": {
@@ -25,7 +25,11 @@
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "lbo_notices"
+            "extension-key": "lbo_notices",
+            "version": "14.0.0",
+            "Package": {
+                "providesPackages": {}
+            }
         }
     }
 }
