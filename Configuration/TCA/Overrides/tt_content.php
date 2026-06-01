@@ -13,5 +13,3 @@ defined('TYPO3') or die();
     'Displaynotice',
     'Display detail of notice'
 );
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('lbo_notices', 'Configuration/TypoScript', 'Notices');

@@ -16,9 +16,7 @@ class Redirect implements MiddlewareInterface
         ServerRequestInterface $request,
         RequestHandlerInterface $handler
     ): ResponseInterface {
-        $response = $handler->handle($request);
-
-        $typoScript = $this->getTypoScriptSetup();
+        $typoScript = $this->getTypoScriptSetup($request);
         if ($typoScript) {
             $levelRedirect = $typoScript['plugin.']['tx_lbonotices.']['levelRedirect'] ?? null;
             if (!empty($levelRedirect)) {
@@ -33,13 +31,13 @@ class Redirect implements MiddlewareInterface
             }
         }
 
-        return $response;
+        return $handler->handle($request);
     }
 
-    protected function getTypoScriptSetup(): ?array
+    protected function getTypoScriptSetup(ServerRequestInterface $request): ?array
     {
-        $frontendTS = $GLOBALS['TYPO3_REQUEST']->getAttribute('frontend.typoscript');
+        $frontendTS = $request->getAttribute('frontend.typoscript');
 
-        return $frontendTS->hasSetup() ? $frontendTS->getSetupArray() : null;
+        return $frontendTS?->hasSetup() ? $frontendTS->getSetupArray() : null;
     }
 }

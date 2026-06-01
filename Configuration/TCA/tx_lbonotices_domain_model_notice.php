@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:lbo_notices/Resources/Private/Language/locallang_db.xlf:tx_lbonotices_domain_model_notice',
+        'title' => 'lbo_notices.db:tx_lbonotices_domain_model_notice',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -15,7 +15,6 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,slug,description,level',
         'iconfile' => 'EXT:lbo_notices/Resources/Public/Icons/tx_lbonotices_domain_model_notice.svg',
         'security' => [
             'ignorePageTypeRestriction' => true
@@ -23,11 +22,11 @@ return [
     ],
     'types' => [
         '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, slug, teaser, description, level, pages,
-            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+            --div--;frontend.ttc:tabs.access, starttime, endtime'],
     ],
     'columns' => [
         'slug' => [
-            'label' => 'LLL:EXT:lbo_notices/Resources/Private/Language/locallang_db.xlf:tx_lbonotices_domain_model_notice.slug',
+            'label' => 'lbo_notices.db:tx_lbonotices_domain_model_notice.slug',
             'config' => [
                 'type' => 'slug',
                 'generatorOptions' => [
@@ -45,7 +44,7 @@ return [
         ],
         'title' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lbo_notices/Resources/Private/Language/locallang_db.xlf:tx_lbonotices_domain_model_notice.title',
+            'label' => 'lbo_notices.db:tx_lbonotices_domain_model_notice.title',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -55,7 +54,7 @@ return [
         ],
         'teaser' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lbo_notices/Resources/Private/Language/locallang_db.xlf:tx_lbonotices_domain_model_notice.teaser',
+            'label' => 'lbo_notices.db:tx_lbonotices_domain_model_notice.teaser',
             'config' => [
                 'type' => 'text',
                 'enableRichtext' => true,
@@ -73,7 +72,7 @@ return [
         ],
         'description' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lbo_notices/Resources/Private/Language/locallang_db.xlf:tx_lbonotices_domain_model_notice.description',
+            'label' => 'lbo_notices.db:tx_lbonotices_domain_model_notice.description',
             'config' => [
                 'type' => 'text',
                 'enableRichtext' => true,
@@ -91,7 +90,7 @@ return [
         ],
         'level' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lbo_notices/Resources/Private/Language/locallang_db.xlf:tx_lbonotices_domain_model_notice.level',
+            'label' => 'lbo_notices.db:tx_lbonotices_domain_model_notice.level',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -104,7 +103,7 @@ return [
             ],
         ],
         'pages' => [
-            'label' => 'LLL:EXT:lbo_notices/Resources/Private/Language/locallang_db.xlf:tx_lbonotices_domain_model_notice.pages',
+            'label' => 'lbo_notices.db:tx_lbonotices_domain_model_notice.pages',
             'l10n_mode' => 'exclude',
             'config' => [
                 'type' => 'group',

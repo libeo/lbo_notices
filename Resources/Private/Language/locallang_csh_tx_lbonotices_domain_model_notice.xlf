@@ -1,17 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:lbo_notices/Resources/Private/Language/locallang_csh" date="2020-07-27T10:21:15Z" product-name="lbo_notices">
-		<header/>
-		<body>
-			<trans-unit id="title.description" resname="title.description">
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+	<file id="lbo_notices" original="EXT:lbo_notices/Resources/Private/Language/locallang_csh_tx_lbonotices_domain_model_notice.xlf">
+		<unit id="title.description">
+			<segment>
 				<source>title</source>
-			</trans-unit>
-			<trans-unit id="description.description" resname="description.description">
+			</segment>
+		</unit>
+		<unit id="description.description">
+			<segment>
 				<source>description</source>
-			</trans-unit>
-			<trans-unit id="level.description" resname="level.description">
+			</segment>
+		</unit>
+		<unit id="level.description">
+			<segment>
 				<source>level</source>
-			</trans-unit>
-		</body>
+			</segment>
+		</unit>
 	</file>
 </xliff>

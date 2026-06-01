@@ -1,20 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:lbo_notices/Resources/Private/Language/locallang" date="2020-07-27T10:21:15Z" product-name="lbo_notices">
-		<header/>
-		<body>
-			<trans-unit id="tx_lbonotices_domain_model_notice" resname="tx_lbonotices_domain_model_notice">
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+	<file id="lbo_notices" original="EXT:lbo_notices/Resources/Private/Language/locallang.xlf">
+		<unit id="tx_lbonotices_domain_model_notice">
+			<segment>
 				<source>Notice</source>
-			</trans-unit>
-			<trans-unit id="tx_lbonotices_domain_model_notice.title" resname="tx_lbonotices_domain_model_notice.title">
+			</segment>
+		</unit>
+		<unit id="tx_lbonotices_domain_model_notice.title">
+			<segment>
 				<source>Title</source>
-			</trans-unit>
-			<trans-unit id="tx_lbonotices_domain_model_notice.description" resname="tx_lbonotices_domain_model_notice.description">
+			</segment>
+		</unit>
+		<unit id="tx_lbonotices_domain_model_notice.description">
+			<segment>
 				<source>Description</source>
-			</trans-unit>
-			<trans-unit id="tx_lbonotices_domain_model_notice.level" resname="tx_lbonotices_domain_model_notice.level">
+			</segment>
+		</unit>
+		<unit id="tx_lbonotices_domain_model_notice.level">
+			<segment>
 				<source>Level</source>
-			</trans-unit>
-		</body>
+			</segment>
+		</unit>
 	</file>
 </xliff>

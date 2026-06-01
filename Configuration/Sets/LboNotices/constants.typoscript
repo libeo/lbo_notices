@@ -1,4 +1,3 @@
-
 plugin.tx_lbonotices {
     view {
         # cat=plugin.tx_lbonotices_list/file; type=string; label=Path to template root (FE)
