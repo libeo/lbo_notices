@@ -17,9 +17,9 @@ call_user_func(
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'LboNotices',
-            'Displaynotice',
+            'Show',
             [
-                \Libeo\LboNotices\Controller\NoticeController::class => 'list, show'
+                \Libeo\LboNotices\Controller\NoticeController::class => 'show'
             ],
             // non-cacheable actions
             [
