@@ -10,6 +10,6 @@ defined('TYPO3') or die();
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'LboNotices',
-    'Displaynotice',
+    'Show',
     'Display detail of notice'
 );
