@@ -25,6 +25,11 @@ return [
             --div--;frontend.ttc:tabs.access, starttime, endtime'],
     ],
     'columns' => [
+        'tstamp' => [
+            'config' => [
+                'type' => 'passthrough',
+            ],
+        ],
         'slug' => [
             'label' => 'lbo_notices.db:tx_lbonotices_domain_model_notice.slug',
             'config' => [
